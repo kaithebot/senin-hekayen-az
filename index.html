@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sənin Hekayən - Uşağınızın Şəxsi Nağıl Kitabı</title>
-    <meta name="description" content="Uşağınızın şəkli və maraqları ilə fərdiləşdirilmiş nağıl kitabı. Sıfırdan yazılmış unikal hekayələr.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -16,17 +13,13 @@
             --magic-purple: #9a66d4;
             --antique-gold: #aa8267;
             --cozy-cream: #e9e1d0;
-            --soft-brown: #604b43;
-            --ink-black: #09090d;
-            --off-white: #ffffff;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, var(--magic-blue) 0%, var(--magic-purple) 100%);
             min-height: 100vh;
-            color: var(--off-white);
-            line-height: 1.6;
+            color: white;
         }
 
         /* Navigation */
@@ -55,75 +48,105 @@
             font-weight: 800;
             color: var(--magic-blue);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--soft-brown);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--magic-blue);
-        }
-
-        .btn-primary {
+        .btn-nav {
             background: linear-gradient(135deg, var(--magic-blue), var(--magic-purple));
             color: white;
             padding: 0.75rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(50, 80, 176, 0.4);
         }
 
         /* Hero Section */
         .hero {
-            padding: 140px 2rem 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
+            padding: 120px 2rem 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="white" opacity="0.3"/><circle cx="80" cy="40" r="1.5" fill="white" opacity="0.2"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.3"/><circle cx="90" cy="90" r="0.8" fill="white" opacity="0.2"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .book-showcase {
+            width: 280px;
+            height: 350px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+            border-radius: 10px 20px 20px 10px;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.4),
+                inset -10px 0 30px rgba(0,0,0,0.2),
+                inset 10px 0 30px rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: transform 0.5s;
+        }
+
+        .book-showcase:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.05);
+        }
+
+        .book-emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .book-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            padding: 0 1rem;
         }
 
         .badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255,255,255,0.2);
             backdrop-filter: blur(10px);
             padding: 0.5rem 1rem;
             border-radius: 50px;
             font-size: 0.875rem;
             font-weight: 600;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .badge-stars {
-            color: #fbbf24;
+            margin-bottom: 1.5rem;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 900;
             line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
         }
 
         .subtitle {
@@ -133,171 +156,235 @@
             margin: 0 auto 2rem;
         }
 
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-large {
+        .btn-magic {
             background: linear-gradient(135deg, var(--antique-gold), #c4956a);
-            color: var(--ink-black);
-            padding: 1rem 2rem;
-            border-radius: 12px;
+            color: #09090d;
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s;
+            font-weight: 800;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-large:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(170, 130, 103, 0.4);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            border: 2px solid rgba(255,255,255,0.3);
+            gap: 0.75rem;
+            box-shadow: 0 10px 40px rgba(170, 130, 103, 0.5);
             transition: all 0.3s;
         }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .btn-magic:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(170, 130, 103, 0.6);
         }
 
-        /* Features */
-        .features {
-            padding: 4rem 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 2rem;
+            background: rgba(255,255,255,0.05);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
-        .features-grid {
+        .steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
 
-        .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.2);
+        .step {
             text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--antique-gold), #c4956a);
+            color: #09090d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .step p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Examples */
+        .examples {
+            padding: 100px 2rem;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .example-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.2);
             transition: transform 0.3s;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
+        .example-card:hover {
+            transform: translateY(-10px);
         }
 
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-card p {
-            opacity: 0.8;
-            font-size: 0.95rem;
-        }
-
-        /* Pricing */
-        .pricing {
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .price-card {
-            background: white;
-            color: var(--ink-black);
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-        }
-
-        .price-label {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--soft-brown);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-        }
-
-        .price {
-            font-size: 4rem;
-            font-weight: 900;
-            color: var(--magic-blue);
-            margin-bottom: 0.5rem;
-        }
-
-        .price-currency {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--soft-brown);
-        }
-
-        .price-features {
-            list-style: none;
-            margin: 2rem 0;
-            text-align: left;
-        }
-
-        .price-features li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #eee;
+        .example-image {
+            height: 200px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            justify-content: center;
+            font-size: 5rem;
         }
 
-        .price-features li::before {
-            content: "✓";
-            color: var(--magic-purple);
+        .example-content {
+            padding: 1.5rem;
+        }
+
+        .example-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-content p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Form Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(9, 9, 13, 0.95);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            color: #09090d;
+            max-width: 500px;
+            width: 100%;
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-content h2 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            color: var(--magic-blue);
+        }
+
+        .modal-subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--magic-blue);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--magic-blue), var(--magic-purple));
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
             font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
         }
 
         /* Footer */
         .footer {
-            background: var(--ink-black);
-            padding: 3rem 2rem;
+            background: #09090d;
+            padding: 60px 2rem;
             text-align: center;
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
         }
 
         .footer h3 {
@@ -306,7 +393,7 @@
         }
 
         .footer p {
-            opacity: 0.7;
+            opacity: 0.6;
             margin-bottom: 2rem;
         }
 
@@ -314,7 +401,6 @@
             display: flex;
             gap: 1rem;
             justify-content: center;
-            margin-top: 2rem;
         }
 
         .social-links a {
@@ -324,43 +410,12 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: background 0.3s;
         }
 
-        .social-links a:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        /* WhatsApp Float */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.75rem;
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
-            transition: transform 0.3s;
-            z-index: 999;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            h1 { font-size: 2.5rem; }
-            .hero-cta { flex-direction: column; }
-            .features-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+            .book-showcase { width: 240px; height: 300px; }
+            .steps { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -368,150 +423,159 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="#" class="logo">
-                📚 Sənin Hekayən
-            </a>
-            <div class="nav-links">
-                <a href="#how-it-works">Necə İşləyir</a>
-                <a href="#pricing">Qiymət</a>
-                <a href="#contact">Əlaqə</a>
-                <a href="#order" class="btn-primary">Sifariş Et</a>
-            </div>
+            <a href="#" class="logo">📚 Sənin Hekayən</a>
+            <a href="#" class="btn-nav" onclick="openModal(); return false;">Nağıl Yarat</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="badge">
-            <span class="badge-stars">★★★★★</span>
-            <span>1000+ valideynin etibar etdiyi xidmət</span>
-        </div>
-        
-        <h1>Uşağınız Baş Qəhrəman Olan Nağıl Kitabı!</h1>
-        
-        <p class="subtitle">
-            Şəkilləri və maraqları ilə fərdiləşdirilmiş unikal nağıl kitabı. 
-            Hər kitab dünyada tək olan əsərdir.
-        </p>
-        
-        <div class="hero-cta">
-            <a href="#order" class="btn-large">
-                🎁 İndi Sifariş Et — 85 AZN
-            </a>
-            <a href="#how-it-works" class="btn-secondary">
-                Necə İşləyir?
-            </a>
+        <div class="hero-content">
+            <div class="book-showcase">
+                <div class="book-emoji">👧</div>
+                <div class="book-title">Leylanın<br>Macəraları</div>
+            </div>
+            
+            <div class="badge">
+                <span>★★★★★</span>
+                <span>1000+ valideynin seçimi</span>
+            </div>
+            
+            <h1>Uşağınız Baş Qəhrəman Olan Nağıl Kitabı!</h1>
+            
+            <p class="subtitle">
+                Şəkilləri və maraqları ilə fərdiləşdirilmiş unikal nağıl kitabı. 
+                Hər kitab dünyada tək olan əsərdir.
+            </p>
+            
+            <button class="btn-magic" onclick="openModal()">
+                ✨ Nağıl Yarat — 85 AZN
+            </button>
         </div>
     </section>
 
-    <!-- Features -->
-    <section class="features" id="how-it-works">
+    <!-- How It Works -->
+    <section class="how-it-works">
         <div class="container">
             <h2 class="section-title">Necə İşləyir?</h2>
             
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">👶</div>
-                    <h3>Uşağınızın Şəkli</h3>
-                    <p>Kitabda uşağınızın şəkli ilə əsl nağıl qəhrəmanına çevrilir</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>🎨 Nağıl Yarat</h3>
+                    <p>"Nağıl Yarat" düyməsinə klikləyin və uşağınızın hekayəsini başladın</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">✨</div>
-                    <h3>Unikal Hekayə</h3>
-                    <p>Maraqlarına uyğun sıfırdan yazılmış hekayə - heç yerdə tapılmaz</p>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>👶 Məlumatları Daxil Edin</h3>
+                    <p>Uşağınızın adı, yaşı, maraqları və şəklini əlavə edin</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">📖</div>
-                    <h3>Premium Keyfiyyət</h3>
-                    <p>40 səhifə, 20x20sm ölçü, bərk üz - illər boyu yadigar</p>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>✨ Biz Yaradırıq</h3>
+                    <p>Professional rəssamlarımız uşağınızı nağıl qəhrəmanına çevirir</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>📦 Çatdırılma</h3>
+                    <p>4 gün ərzində premium keyfiyyətli kitabınız əlinizdə</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing -->
-    <section class="pricing" id="pricing">
+    <!-- Examples -->
+    <section class="examples">
         <div class="container">
-            <h2 class="section-title">Qiymət</h2>
+            <h2 class="section-title">Hazırlanmış Kitablar</h2>
             
-            <div class="price-card">
-                <div class="price-label">Tam Dəst</div>
-                <div class="price">
-                    85 <span class="price-currency">AZN</span>
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-image">🚀</div>
+                    <div class="example-content">
+                        <h3>Toğrul və Kosmos</h3>
+                        <p>Kosmosu sevən oğlan üçün yazılmış macəra nağılı</p>
+                    </div>
                 </div>
                 
-                <ul class="price-features">
-                    <li>40 səhifəlik fərdi nağıl kitabı</li>
-                    <li>Uşağınızın şəkilləri ilə illüstrasiyalar</li>
-                    <li>20x20sm bərk üz format</li>
-                    <li>4 gün ərzində çatdırılma</li>
-                    <li>6 dil seçimi (Azərbaycan, İngilis, Türk, Rus, İspan, Fransız)</li>
-                </ul>
+                <div class="example-card">
+                    <div class="example-image" style="background: linear-gradient(135deg, #ff69b4, #ff8ec8);">🧚‍♀️</div>
+                    <div class="example-content">
+                        <h3>Leyla və Perilər</h3>
+                        <p>Peri dünyasında baş verən sehrli nağıl</p>
+                    </div>
+                </div>
                 
-                <a href="#order" class="btn-large" style="width: 100%; justify-content: center;">
-                    🎁 İndi Sifariş Et
-                </a>
+                <div class="example-card">
+                    <div class="example-image" style="background: linear-gradient(135deg, #4ade80, #86efac);">🦕</div>
+                    <div class="example-content">
+                        <h3>Əmin və Dinozavrlar</h3>
+                        <p>Dinozavr dünyasına səyahət edən oğlanın hekayəsi</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Order Section -->
-    <section class="features" id="order">
-        <div class="container">
-            <h2 class="section-title">Sifariş Formu</h2>
+    <!-- Form Modal -->
+    <div class="modal-overlay" id="storyModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
             
-            <div class="price-card" style="max-width: 500px;">
-                <form style="text-align: left;">
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--soft-brown);">Dil Seçin</label>
-                        <select style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
-                            <option>🇦🇿 Azərbaycan</option>
-                            <option>🇬🇧 English</option>
-                            <option>🇹🇷 Türkçe</option>
-                            <option>🇷🇺 Русский</option>
-                        </select>
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--soft-brown);">Uşağın Adı</label>
-                        <input type="text" placeholder="Məsələn: Leyla" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--soft-brown);">Yaşı</label>
-                        <input type="number" placeholder="Məsələn: 5" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--soft-brown);">Maraqları (vergüllə ayırın)</label>
-                        <input type="text" placeholder="Məsələn: kosmos, rəsm, qoşaq" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--soft-brown);">Valideynin Adı</label>
-                        <input type="text" placeholder="Adınız" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
-                    </div>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--soft-brown);">WhatsApp Nömrəsi</label>
-                        <input type="tel" placeholder="+994 XX XXX XX XX" style="width: 100%; padding: 0.75rem; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
-                    </div>
-                    
-                    <button type="submit" class="btn-large" style="width: 100%; justify-content: center; border: none; cursor: pointer;">
-                        ✅ Sifarişi Tamamla
-                    </button>
-                </form>
-            </div>
+            <h2>✨ Nağıl Yarat</h2>
+            <p class="modal-subtitle">Uşağınızın unikal hekayəsini başladın</p>
+            
+            <form onsubmit="event.preventDefault(); alert('Sifarişiniz qəbul edildi!'); closeModal();">
+                <div class="form-group">
+                    <label>Dil Seçin</label>
+                    <select>
+                        <option>🇦🇿 Azərbaycan</option>
+                        <option>🇬🇧 English</option>
+                        <option>🇹🇷 Türkçe</option>
+                        <option>🇷🇺 Русский</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Uşağın Adı</label>
+                    <input type="text" placeholder="Məsələn: Leyla" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Yaşı</label>
+                    <input type="number" placeholder="Məsələn: 5" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Maraqları (vergüllə ayırın)</label>
+                    <input type="text" placeholder="Məsələn: kosmos, rəsm, qoşaq" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Valideynin Adı</label>
+                    <input type="text" placeholder="Adınız" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>WhatsApp Nömrəsi</label>
+                    <input type="tel" placeholder="+994 XX XXX XX XX" required>
+                </div>
+                
+                <button type="submit" class="btn-submit">
+                    🎁 Sifarişi Tamamla — 85 AZN
+                </button>
+            </form>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
-        <div class="footer-content">
+    <footer class="footer">
+        <div class="container">
             <h3>📚 Sənin Hekayən</h3>
-            <p>Uşağınızın xəyallarını gerçəkləşdirin. Hər kitab unikal, hər hekayə xüsusi.</p>
+            <p>Uşağınızın xəyallarını gerçəkləşdirin</p>
             
             <div class="social-links">
                 <a href="https://instagram.com/senin.hekayen.az">📷 Instagram</a>
@@ -520,10 +584,26 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/994000000000" class="whatsapp-float" title="WhatsApp">
-        💬
-    </a>
+    <script>
+        function openModal() {
+            document.getElementById('storyModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            document.getElementById('storyModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+        
+        // Close on overlay click
+        document.getElementById('storyModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+    </script>
 </body>
 </html>
-HTMLEOF
