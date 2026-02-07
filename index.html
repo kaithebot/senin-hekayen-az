@@ -7,362 +7,277 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         :root {
             --magic-blue: #3250b0;
             --magic-purple: #9a66d4;
             --antique-gold: #aa8267;
-            --cozy-cream: #e9e1d0;
         }
-
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, var(--magic-blue) 0%, var(--magic-purple) 100%);
             min-height: 100vh;
             color: white;
         }
-
-        /* Navigation */
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+        
+        /* Nav */
         .nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
             padding: 1rem 2rem;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--magic-blue);
-            text-decoration: none;
-        }
-
-        .btn-nav {
-            background: linear-gradient(135deg, var(--magic-blue), var(--magic-purple));
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Hero Section */
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--magic-blue); text-decoration: none; }
+        .btn-nav { background: linear-gradient(135deg, var(--magic-blue), var(--magic-purple)); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        
+        /* Hero */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 140px 2rem 80px;
             text-align: center;
-            padding: 120px 2rem 80px;
-            position: relative;
-            overflow: hidden;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="white" opacity="0.3"/><circle cx="80" cy="40" r="1.5" fill="white" opacity="0.2"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.3"/><circle cx="90" cy="90" r="0.8" fill="white" opacity="0.2"/></svg>');
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes float {
-            from { transform: translateY(0); }
-            to { transform: translateY(-100px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-        }
-
         .book-showcase {
-            width: 280px;
-            height: 350px;
+            width: 260px; height: 320px;
             margin: 0 auto 2rem;
             background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
             border-radius: 10px 20px 20px 10px;
-            box-shadow: 
-                0 20px 60px rgba(0,0,0,0.4),
-                inset -10px 0 30px rgba(0,0,0,0.2),
-                inset 10px 0 30px rgba(255,255,255,0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            transform: perspective(1000px) rotateY(-10deg);
-            transition: transform 0.5s;
-        }
-
-        .book-showcase:hover {
-            transform: perspective(1000px) rotateY(0deg) scale(1.05);
-        }
-
-        .book-emoji {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
             font-size: 4rem;
-            margin-bottom: 1rem;
         }
-
-        .book-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: white;
-            text-align: center;
-            padding: 0 1rem;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-        }
-
-        .subtitle {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
+        .hero h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem; }
         .btn-magic {
             background: linear-gradient(135deg, var(--antique-gold), #c4956a);
             color: #09090d;
-            padding: 1.25rem 3rem;
+            padding: 1.2rem 2.5rem;
             border-radius: 50px;
-            text-decoration: none;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             border: none;
             cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            box-shadow: 0 10px 40px rgba(170, 130, 103, 0.5);
-            transition: all 0.3s;
+            box-shadow: 0 10px 40px rgba(170,130,103,0.5);
         }
-
-        .btn-magic:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 20px 60px rgba(170, 130, 103, 0.6);
-        }
-
-        /* How It Works */
-        .how-it-works {
-            padding: 100px 2rem;
+        
+        /* Stats */
+        .stats {
+            padding: 60px 2rem;
             background: rgba(255,255,255,0.05);
         }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 4rem;
-        }
-
-        .steps {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+        .stat-number { font-size: 2.5rem; font-weight: 900; color: var(--antique-gold); }
+        .stat-label { font-size: 0.9rem; opacity: 0.8; }
+        
+        /* Comparison */
+        .comparison {
+            padding: 80px 2rem;
+        }
+        .section-title { text-align: center; font-size: 2rem; font-weight: 800; margin-bottom: 3rem; }
+        .comp-table {
+            background: white;
+            color: #09090d;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .comp-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+        .comp-row.header {
+            background: linear-gradient(135deg, var(--magic-blue), var(--magic-purple));
+            color: white;
+            font-weight: 700;
+        }
+        .comp-row:last-child { border-bottom: none; }
+        .check { color: #22c55e; font-size: 1.2rem; }
+        .cross { color: #ef4444; font-size: 1.2rem; }
+        .highlight { background: rgba(170,130,103,0.1); font-weight: 600; }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 2rem;
+            background: rgba(255,255,255,0.05);
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
         }
-
-        .step {
-            text-align: center;
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
             padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
         }
-
+        .stars { color: #fbbf24; margin-bottom: 1rem; }
+        .testimonial-text { font-size: 1rem; line-height: 1.6; margin-bottom: 1rem; }
+        .testimonial-author { font-weight: 700; color: var(--antique-gold); }
+        
+        /* Process */
+        .process {
+            padding: 80px 2rem;
+        }
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+        .timeline-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        .timeline-step::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: var(--antique-gold);
+        }
+        .timeline-step:last-child::after { display: none; }
         .step-number {
-            width: 60px;
-            height: 60px;
+            width: 60px; height: 60px;
             background: linear-gradient(135deg, var(--antique-gold), #c4956a);
             color: #09090d;
             border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: 800;
+            margin: 0 auto 1rem;
+        }
+        .step-title { font-weight: 700; margin-bottom: 0.5rem; }
+        .step-desc { font-size: 0.9rem; opacity: 0.8; }
+        
+        /* FAQ */
+        .faq {
+            padding: 80px 2rem;
+            background: rgba(255,255,255,0.05);
+        }
+        .faq-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin: 0 auto 1.5rem;
         }
-
-        .step h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-
-        .step p {
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
             opacity: 0.8;
             line-height: 1.6;
         }
-
+        
+        /* Trust */
+        .trust {
+            padding: 60px 2rem;
+            text-align: center;
+        }
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .trust-icon { font-size: 2.5rem; }
+        .trust-text { font-size: 0.9rem; opacity: 0.9; }
+        
         /* Examples */
         .examples {
-            padding: 100px 2rem;
+            padding: 80px 2rem;
         }
-
-        .examples-grid {
+        .example-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-top: 3rem;
         }
-
         .example-card {
             background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.2);
             transition: transform 0.3s;
         }
-
-        .example-card:hover {
-            transform: translateY(-10px);
+        .example-card:hover { transform: translateY(-10px); }
+        .example-img {
+            height: 180px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 4rem;
         }
-
-        .example-image {
-            height: 200px;
-            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
+        .example-info { padding: 1.5rem; }
+        .example-info h3 { margin-bottom: 0.5rem; }
+        .example-info p { font-size: 0.9rem; opacity: 0.8; }
+        
+        /* Footer */
+        .footer {
+            background: #09090d;
+            padding: 60px 2rem;
+            text-align: center;
         }
-
-        .example-content {
-            padding: 1.5rem;
-        }
-
-        .example-content h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .example-content p {
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        /* Form Modal */
-        .modal-overlay {
+        
+        /* Modal */
+        .modal {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(9, 9, 13, 0.95);
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(9,9,13,0.95);
             z-index: 2000;
             overflow-y: auto;
             padding: 2rem;
         }
-
-        .modal-overlay.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
+        .modal.active { display: flex; align-items: center; justify-content: center; }
         .modal-content {
             background: white;
             color: #09090d;
             max-width: 500px;
             width: 100%;
             border-radius: 20px;
-            padding: 2.5rem;
+            padding: 2rem;
             position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
         }
-
         .modal-close {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 1rem; right: 1rem;
             background: none;
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: #666;
         }
-
-        .modal-content h2 {
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-            color: var(--magic-blue);
-        }
-
-        .modal-subtitle {
-            color: #666;
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+        .form-group input, .form-group select {
             width: 100%;
             padding: 0.875rem;
             border: 2px solid #e5e7eb;
             border-radius: 10px;
             font-size: 1rem;
-            transition: border-color 0.3s;
         }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--magic-blue);
-        }
-
         .btn-submit {
             width: 100%;
             background: linear-gradient(135deg, var(--magic-blue), var(--magic-purple));
@@ -373,115 +288,151 @@
             font-size: 1.1rem;
             font-weight: 700;
             cursor: pointer;
-            transition: transform 0.3s;
         }
-
-        .btn-submit:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        .footer {
-            background: #09090d;
-            padding: 60px 2rem;
-            text-align: center;
-        }
-
-        .footer h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer p {
-            opacity: 0.6;
-            margin-bottom: 2rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .social-links a {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
+        
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .book-showcase { width: 240px; height: 300px; }
-            .steps { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .timeline { flex-direction: column; }
+            .timeline-step::after { display: none; }
+            .example-grid { grid-template-columns: 1fr; }
+            .comp-row { font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Nav -->
     <nav class="nav">
-        <div class="nav-container">
-            <a href="#" class="logo">📚 Sənin Hekayən</a>
-            <a href="#" class="btn-nav" onclick="openModal(); return false;">Nağıl Yarat</a>
-        </div>
+        <a href="#" class="logo">📚 Sənin Hekayən</a>
+        <a href="#" class="btn-nav" onclick="openModal(); return false;">Nağıl Yarat</a>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="book-showcase">
-                <div class="book-emoji">👧</div>
-                <div class="book-title">Leylanın<br>Macəraları</div>
-            </div>
-            
-            <div class="badge">
-                <span>★★★★★</span>
-                <span>1000+ valideynin seçimi</span>
-            </div>
-            
+        <div class="container">
+            <div class="book-showcase">👧</div>
             <h1>Uşağınız Baş Qəhrəman Olan Nağıl Kitabı!</h1>
-            
-            <p class="subtitle">
-                Şəkilləri və maraqları ilə fərdiləşdirilmiş unikal nağıl kitabı. 
-                Hər kitab dünyada tək olan əsərdir.
-            </p>
-            
-            <button class="btn-magic" onclick="openModal()">
-                ✨ Nağıl Yarat — 85 AZN
-            </button>
+            <p>Şəkilləri və maraqları ilə fərdiləşdirilmiş unikal nağıl kitabı. Hər kitab dünyada tək olan əsərdir.</p>
+            <button class="btn-magic" onclick="openModal()">✨ Nağıl Yarat — 85 AZN</button>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works">
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div><div class="stat-number">1000+</div><div class="stat-label">Xoşbəxt Ailə</div></div>
+                <div><div class="stat-number">4.9★</div><div class="stat-label">Reytinq</div></div>
+                <div><div class="stat-number">4 Gün</div><div class="stat-label">Çatdırılma</div></div>
+                <div><div class="stat-number">6</div><div class="stat-label">Dil</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="comparison">
+        <div class="container">
+            <h2 class="section-title">Niyə Biz?</h2>
+            <div class="comp-table">
+                <div class="comp-row header">
+                    <div>Xüsusiyyət</div>
+                    <div>Adi Kitab</div>
+                    <div>Başqaları</div>
+                    <div>Sənin Hekayən</div>
+                </div>
+                <div class="comp-row">
+                    <div>Şəkillə fərdiləşdirmə</div>
+                    <div class="cross">✗</div>
+                    <div class="cross">✗</div>
+                    <div class="check highlight">✓</div>
+                </div>
+                <div class="comp-row">
+                    <div>Sıfırdan yazılmış hekayə</div>
+                    <div class="cross">✗</div>
+                    <div class="cross">✗</div>
+                    <div class="check highlight">✓</div>
+                </div>
+                <div class="comp-row">
+                    <div>40 səhifəlik tam kitab</div>
+                    <div class="check">✓</div>
+                    <div class="cross">✗</div>
+                    <div class="check highlight">✓</div>
+                </div>
+                <div class="comp-row">
+                    <div>Bərk üz / Premium keyfiyyət</div>
+                    <div class="check">✓</div>
+                    <div class="cross">✗</div>
+                    <div class="check highlight">✓</div>
+                </div>
+                <div class="comp-row">
+                    <div>6 dil seçimi</div>
+                    <div class="cross">✗</div>
+                    <div class="cross">✗</div>
+                    <div class="check highlight">✓</div>
+                </div>
+                <div class="comp-row">
+                    <div>4 günə çatdırılma</div>
+                    <div class="cross">✗</div>
+                    <div class="cross">✗</div>
+                    <div class="check highlight">✓</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Valideynlərimiz Deyir</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Leyla kitabını görəndə çox sevindi. Özünü qəhrəman hiss etdi. Keyfiyyət əla!"</p>
+                    <div class="testimonial-author">— Aysel M., Bakı</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Hekayə tam olaraq oğlumun maraqlarına uyğun yazılıb. Çox təəssüratlı!"</p>
+                    <div class="testimonial-author">— Elnur K., Sumqayıt</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"4 gün ərzində gəldi. Həm kitab, həm xidmət möhtəşəm. Tövsiyə edirəm!"</p>
+                    <div class="testimonial-author">— Nigar H., Gəncə</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Nəvəmə hədiyyə aldım. İllər boyu yadigar qalacaq bir əsər."</p>
+                    <div class="testimonial-author">— Rəşid A., Bakı</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process">
         <div class="container">
             <h2 class="section-title">Necə İşləyir?</h2>
-            
-            <div class="steps">
-                <div class="step">
+            <div class="timeline">
+                <div class="timeline-step">
                     <div class="step-number">1</div>
-                    <h3>🎨 Nağıl Yarat</h3>
-                    <p>"Nağıl Yarat" düyməsinə klikləyin və uşağınızın hekayəsini başladın</p>
+                    <div class="step-title">Sifariş Verin</div>
+                    <div class="step-desc">Uşağınızın məlumatlarını daxil edin</div>
                 </div>
-                
-                <div class="step">
+                <div class="timeline-step">
                     <div class="step-number">2</div>
-                    <h3>👶 Məlumatları Daxil Edin</h3>
-                    <p>Uşağınızın adı, yaşı, maraqları və şəklini əlavə edin</p>
+                    <div class="step-title">Biz Yaradırıq</div>
+                    <div class="step-desc">Professional komanda hekayəni hazırlayır</div>
                 </div>
-                
-                <div class="step">
+                <div class="timeline-step">
                     <div class="step-number">3</div>
-                    <h3>✨ Biz Yaradırıq</h3>
-                    <p>Professional rəssamlarımız uşağınızı nağıl qəhrəmanına çevirir</p>
+                    <div class="step-title">Təsdiqləyin</div>
+                    <div class="step-desc">Hekayəyə baxın və təsdiq edin</div>
                 </div>
-                
-                <div class="step">
+                <div class="timeline-step">
                     <div class="step-number">4</div>
-                    <h3>📦 Çatdırılma</h3>
-                    <p>4 gün ərzində premium keyfiyyətli kitabınız əlinizdə</p>
+                    <div class="step-title">Çatdırılma</div>
+                    <div class="step-desc">4 gün ərzində əlinizdə</div>
                 </div>
             </div>
         </div>
@@ -490,119 +441,132 @@
     <!-- Examples -->
     <section class="examples">
         <div class="container">
-            <h2 class="section-title">Hazırlanmış Kitablar</h2>
-            
-            <div class="examples-grid">
+            <h2 class="section-title">Nümunə Kitablar</h2>
+            <div class="example-grid">
                 <div class="example-card">
-                    <div class="example-image">🚀</div>
-                    <div class="example-content">
+                    <div class="example-img" style="background: linear-gradient(135deg, #667eea, #764ba2);">🚀</div>
+                    <div class="example-info">
                         <h3>Toğrul və Kosmos</h3>
-                        <p>Kosmosu sevən oğlan üçün yazılmış macəra nağılı</p>
+                        <p>Kosmosu sevən oğlan üçün macəra</p>
                     </div>
                 </div>
-                
                 <div class="example-card">
-                    <div class="example-image" style="background: linear-gradient(135deg, #ff69b4, #ff8ec8);">🧚‍♀️</div>
-                    <div class="example-content">
+                    <div class="example-img" style="background: linear-gradient(135deg, #f093fb, #f5576c);">🧚‍♀️</div>
+                    <div class="example-info">
                         <h3>Leyla və Perilər</h3>
-                        <p>Peri dünyasında baş verən sehrli nağıl</p>
+                        <p>Sehrli peri dünyasına səyahət</p>
                     </div>
                 </div>
-                
                 <div class="example-card">
-                    <div class="example-image" style="background: linear-gradient(135deg, #4ade80, #86efac);">🦕</div>
-                    <div class="example-content">
+                    <div class="example-img" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">🦕</div>
+                    <div class="example-info">
                         <h3>Əmin və Dinozavrlar</h3>
-                        <p>Dinozavr dünyasına səyahət edən oğlanın hekayəsi</p>
+                        <p>Dinozavr dünyasına səfər</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Form Modal -->
-    <div class="modal-overlay" id="storyModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            
-            <h2>✨ Nağıl Yarat</h2>
-            <p class="modal-subtitle">Uşağınızın unikal hekayəsini başladın</p>
-            
-            <form onsubmit="event.preventDefault(); alert('Sifarişiniz qəbul edildi!'); closeModal();">
-                <div class="form-group">
-                    <label>Dil Seçin</label>
-                    <select>
-                        <option>🇦🇿 Azərbaycan</option>
-                        <option>🇬🇧 English</option>
-                        <option>🇹🇷 Türkçe</option>
-                        <option>🇷🇺 Русский</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label>Uşağın Adı</label>
-                    <input type="text" placeholder="Məsələn: Leyla" required>
-                </div>
-                
-                <div class="form-group">
-                    <label>Yaşı</label>
-                    <input type="number" placeholder="Məsələn: 5" required>
-                </div>
-                
-                <div class="form-group">
-                    <label>Maraqları (vergüllə ayırın)</label>
-                    <input type="text" placeholder="Məsələn: kosmos, rəsm, qoşaq" required>
-                </div>
-                
-                <div class="form-group">
-                    <label>Valideynin Adı</label>
-                    <input type="text" placeholder="Adınız" required>
-                </div>
-                
-                <div class="form-group">
-                    <label>WhatsApp Nömrəsi</label>
-                    <input type="tel" placeholder="+994 XX XXX XX XX" required>
-                </div>
-                
-                <button type="submit" class="btn-submit">
-                    🎁 Sifarişi Tamamla — 85 AZN
-                </button>
-            </form>
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Tez-tez Verilən Suallar</h2>
+            <div class="faq-item">
+                <div class="faq-question">Çatdırılma neçə gün çəkir? <span>+</span></div>
+                <div class="faq-answer">Sifarişinizdən sonra 4 iş günü ərzində kitabınız hazır olur və çatdırılır.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Hansı dillərdə mövcuddur? <span>+</span></div>
+                <div class="faq-answer">Azərbaycan, İngilis, Türk, Rus, İspan və Fransız dillərində hazırlaya bilərik.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Şəkil üçün hansı tələblər var? <span>+</span></div>
+                <div class="faq-answer">Yüksək keyfiyyətli, aydın, üzə çəkilmiş şəkil göndərməyiniz kifayətdir.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Yaş məhdudiyyəti varmı? <span>+</span></div>
+                <div class="faq-answer">3-12 yaş arası uşaqlar üçün ən uyğundur, amma böyüklər üçün də hazırlaya bilərik.</div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Trust -->
+    <section class="trust">
+        <div class="container">
+            <h2 class="section-title">Güvənli və Təhlükəsiz</h2>
+            <div class="trust-badges">
+                <div class="trust-item">
+                    <div class="trust-icon">🔒</div>
+                    <div class="trust-text">Təhlükəsiz Ödəniş</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">📸</div>
+                    <div class="trust-text">Şəkillər Məxfidir</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">✓</div>
+                    <div class="trust-text">100% Məmnuniyyət</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🎁</div>
+                    <div class="trust-text">Hədiyyə Paketi</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <h3>📚 Sənin Hekayən</h3>
             <p>Uşağınızın xəyallarını gerçəkləşdirin</p>
-            
-            <div class="social-links">
-                <a href="https://instagram.com/senin.hekayen.az">📷 Instagram</a>
-                <a href="https://wa.me/994000000000">💬 WhatsApp</a>
-            </div>
+            <p>📱 WhatsApp: +994 00 000 00 00 | 📷 Instagram: @senin.hekayen.az</p>
         </div>
     </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="storyModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <h2>✨ Nağıl Yarat</h2>
+            <form onsubmit="event.preventDefault(); alert('Sifarişiniz qəbul edildi!'); closeModal();">
+                <div class="form-group">
+                    <label>Dil</label>
+                    <select><option>Azərbaycan</option><option>English</option><option>Türkçe</option><option>Русский</option></select>
+                </div>
+                <div class="form-group">
+                    <label>Uşağın Adı</label>
+                    <input type="text" placeholder="Məsələn: Leyla" required>
+                </div>
+                <div class="form-group">
+                    <label>Yaşı</label>
+                    <input type="number" placeholder="Məsələn: 5" required>
+                </div>
+                <div class="form-group">
+                    <label>Maraqları</label>
+                    <input type="text" placeholder="Məsələn: kosmos, rəsm" required>
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp</label>
+                    <input type="tel" placeholder="+994 XX XXX XX XX" required>
+                </div>
+                <button type="submit" class="btn-submit">🎁 Sifariş Et — 85 AZN</button>
+            </form>
+        </div>
+    </div>
 
     <script>
         function openModal() {
             document.getElementById('storyModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-        
         function closeModal() {
             document.getElementById('storyModal').classList.remove('active');
             document.body.style.overflow = '';
         }
-        
-        // Close on escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeModal();
-        });
-        
-        // Close on overlay click
-        document.getElementById('storyModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
         });
     </script>
 </body>
