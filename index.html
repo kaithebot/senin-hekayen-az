@@ -4,142 +4,267 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sənin Hekayən - Uşağınızın Şəxsi Nağıl Kitabı</title>
-    <meta name="description" content="Uşağınızın şəkli və maraqları ilə fərdiləşdirilmiş nağıl kitabı sifariş edin. Sıfırdan yazılmış unikal hekayələr.">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Uşağınızın şəkli və maraqları ilə fərdiləşdirilmiş nağıl kitabı. Sıfırdan yazılmış unikal hekayələr.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <span class="logo-icon">📚</span>
-                <span class="logo-text">Sənin Hekayən</span>
-            </div>
-            <a href="https://wa.me/994000000000" class="whatsapp-btn" target="_blank">
-                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                WhatsApp
-            </a>
-        </div>
-    </nav>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">🌟 Fərdi Nağıl Kitabı</div>
-                <h1>Uşağınız <span class="highlight">Baş Qəhrəman</span> Olan Nağıl Kitabı!</h1>
-                <p class="hero-subtitle">
-                    Uşağınızın şəkli və maraqlarına əsasən <strong>sıfırdan yazılmış</strong> unikal hekayə.
-                    Hər kitab dünyada tək olan əsərdir!
-                </p>
-                <div class="hero-features">
-                    <div class="feature">
-                        <span class="feature-icon">👶</span>
-                        <span>Uşağınızın şəkli</span>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">✨</span>
-                        <span>Sıfırdan yazılmış hekayə</span>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">📖</span>
-                        <span>Keyfiyyətli çap</span>
-                    </div>
-                </div>
-                <div class="hero-cta">
-                    <a href="#sifaris" class="btn btn-primary">🎁 İndi Sifariş Et</a>
-                    <a href="#numuneler" class="btn btn-secondary">Nümunələrə Bax</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="book-showcase">
-                    <div class="book book-main">
-                        <div class="book-cover">
-                            <div class="book-spine"></div>
-                            <div class="book-front">
-                                <div class="cover-illustration">
-                                    <div class="cover-child">👧</div>
-                                    <div class="cover-stars">✨ ✨ ✨</div>
-                                </div>
-                                <div class="cover-title">
-                                    <small>Sənin Hekayən</small>
-                                    <h3>Leylanın Macəraları</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="floating-elements">
-                        <span class="float-item" style="--delay: 0s">🌙</span>
-                        <span class="float-item" style="--delay: 0.5s">⭐</span>
-                        <span class="float-item" style="--delay: 1s">🦋</span>
-                        <span class="float-item" style="--delay: 1.5s">🌸</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        :root {
+            --magic-blue: #3250b0;
+            --magic-purple: #9a66d4;
+            --antique-gold: #aa8267;
+            --cozy-cream: #e9e1d0;
+            --soft-brown: #604b43;
+            --ink-black: #09090d;
+            --off-white: #f5f5f5;
+        }
 
-    <!-- How It Works -->
-    <section class="how-it-works" id="necedir">
-        <div class="container">
-            <div class="section-header">
-                <h2>Necə İşləyir? 🤔</h2>
-                <p>Cəmi 4 sadə addımda uşağınızın xüsusi kitabı hazır!</p>
-            </div>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-icon">📸</div>
-                    <h3>Şəkil Göndərin</h3>
-                    <p>Uşağınızın sevdiyi bir şəklini bizə göndərin</p>
-                </div>
-                <div class="step-arrow">→</div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-icon">💭</div>
-                    <h3>Maraqları Deyin</h3>
-                    <p>Uşağınızın sevdiyi şeylər, hobbi və maraqları</p>
-                </div>
-                <div class="step-arrow">→</div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-icon">✍️</div>
-                    <h3>Hekayə Yazılır</h3>
-                    <p>Sıfırdan, uşağınız üçün unikal hekayə yazılır</p>
-                </div>
-                <div class="step-arrow">→</div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-icon">📦</div>
-                    <h3>Kitab Çatdırılır</h3>
-                    <p>Evə çatdırılan gözəl nağıl kitabınız!</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        html {
+            scroll-behavior: smooth;
+        }
 
-    <!-- Examples Gallery -->
-    <section class="gallery" id="numuneler">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nümunə Kitablar 📚</h2>
-                <p>Həqiqi sifarişlərdən nümunələr</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="book-card">
-                        <div class="book-card-cover" style="background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 100%);">
-                            <span class="book-emoji">👦</span>
-                            <div class="book-card-title">Toğrul və Kosmos</div>
-                        </div>
-                        <div class="book-card-info">
-                            <p>Kosmosu sevən oğlan üçün</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="book-card">
-                        <div class="book-card-cover" style="background: linear-gradient(135deg, #a8edea 0%,
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, var(--magic-blue) 0%, var(--magic-purple) 100%);
+            min-height: 100vh;
+            color: var(--off-white);
+            overflow-x: hidden;
+        }
+
+        /* Magical Background Effects */
+        .magic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(9, 9, 13, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(154, 102, 212, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--off-white);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 0 10px rgba(154, 102, 212, 0.8));
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Main Container */
+        .main-container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 100px 1rem 2rem;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: linear-gradient(90deg, var(--antique-gold), var(--cozy-cream));
+            border-radius: 50px;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 10px rgba(170, 130, 103, 0.5);
+        }
+
+        .step-indicator {
+            text-align: center;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--cozy-cream);
+        }
+
+        /* Wizard Steps */
+        .wizard-step {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .wizard-step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--antique-gold);
+        }
+
+        .card h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: var(--ink-black);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .card-subtitle {
+            text-align: center;
+            color: var(--soft-brown);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--antique-gold), var(--cozy-cream));
+            color: var(--ink-black);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(170, 130, 103, 0.4);
+        }
+
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--off-white);
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--antique-gold), var(--cozy-cream));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--cozy-cream);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 1rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(154, 102, 212, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .feature-text {
+            font-size: 0.9rem;
+            color: var(--cozy-cream);
+        }
+
+        /* Product Specs */
+        .specs-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .specs-title {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color:
