@@ -3,268 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sənin Hekayən - Uşağınızın Şəxsi Nağıl Kitabı</title>
-    <meta name="description" content="Uşağınızın şəkli və maraqları ilə fərdiləşdirilmiş nağıl kitabı. Sıfırdan yazılmış unikal hekayələr.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Sənin Hekayən - Şəxsi Nağıl Kitabı</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --magic-blue: #3250b0;
-            --magic-purple: #9a66d4;
-            --antique-gold: #aa8267;
-            --cozy-cream: #e9e1d0;
-            --soft-brown: #604b43;
-            --ink-black: #09090d;
-            --off-white: #f5f5f5;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Nunito', sans-serif;
-            background: linear-gradient(135deg, var(--magic-blue) 0%, var(--magic-purple) 100%);
+            background: linear-gradient(135deg, #3250b0 0%, #9a66d4 100%);
             min-height: 100vh;
-            color: var(--off-white);
-            overflow-x: hidden;
+            color: #f5f5f5;
+            padding: 20px;
         }
-
-        /* Magical Background Effects */
-        .magic-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 3s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(9, 9, 13, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(154, 102, 212, 0.3);
-        }
-
-        .nav-container {
-            max-width: 1200px;
+        .container {
+            max-width: 600px;
             margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding-top: 60px;
         }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--off-white);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            color: #09090d;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
         }
-
-        .logo-icon {
+        h1 {
             font-size: 2rem;
-            filter: drop-shadow(0 0 10px rgba(154, 102, 212, 0.8));
+            text-align: center;
+            margin-bottom: 10px;
+            color: #3250b0;
         }
-
-        .whatsapp-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, #25d366, #128c7e);
+        .subtitle {
+            text-align: center;
+            color: #604b43;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #aa8267, #c4956a);
+            color: #09090d;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(170,130,103,0.4);
+        }
+        .feature-box {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .price {
+            font-size: 2.5rem;
+            color: #aa8267;
+            font-weight: 800;
+            text-align: center;
+            margin: 20px 0;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #e9e1d0;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
             color: white;
-            padding: 0.75rem 1.5rem;
+            padding: 15px 20px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 4px 15px rgba(37,211,102,0.4);
         }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- STEP 1: Hero -->
+        <div class="card">
+            <h1>📚 Sənin Hekayən</h1>
+            <p class="subtitle">Uşağınızın şəkilləri və maraqları ilə fərdiləşdirilmiş nağıl kitabı</p>
+            
+            <div class="feature-box">
+                <strong>👶 Uşağınız baş qəhrəman</strong><br>
+                Şəkilləri ilə əsl nağıl qəhrəmanına çevrilir
+            </div>
+            
+            <div class="feature-box">
+                <strong>✨ Unikal hekayə</strong><br>
+                Maraqlarına uyğun sıfırdan yazılmış
+            </div>
+            
+            <div class="feature-box">
+                <strong>📖 Premium keyfiyyət</strong><br>
+                40 səhifə, 20x20sm, bərk üz
+            </div>
+            
+            <div class="price">85 AZN</div>
+            
+            <a href="#order" class="btn">🎁 İndi Sifariş Et</a>
+        </div>
 
-        .whatsapp-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-        }
+        <!-- STEP 2: Order Form -->
+        <div class="card" id="order">
+            <h1>Sifariş Formu</h1>
+            
+            <label>Dil seçin:</label>
+            <select>
+                <option>🇦🇿 Azərbaycan</option>
+                <option>🇬🇧 English</option>
+                <option>🇹🇷 Türkçe</option>
+                <option>🇷🇺 Русский</option>
+            </select>
+            
+            <label>Uşağın adı:</label>
+            <input type="text" placeholder="Məsələn: Leyla">
+            
+            <label>Yaşı:</label>
+            <input type="number" placeholder="Məsələn: 5">
+            
+            <label>Maraqları (vergüllə ayırın):</label>
+            <input type="text" placeholder="Məsələn: kosmos, rəsm, qoşaq">
+            
+            <label>Valideynin adı:</label>
+            <input type="text" placeholder="Adınız">
+            
+            <label>WhatsApp nömrəsi:</label>
+            <input type="tel" placeholder="+994 XX XXX XX XX">
+            
+            <label>Ünvan:</label>
+            <textarea rows="3" placeholder="Çatdırılma ünvanı"></textarea>
+            
+            <button class="btn">✅ Sifarişi Tamamla</button>
+        </div>
 
-        /* Main Container */
-        .main-container {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 100px 1rem 2rem;
-        }
+        <!-- Contact -->
+        <div class="card">
+            <h1>Əlaqə</h1>
+            <p class="subtitle">Sualınız var? Bizimlə əlaqə saxlayın!</p>
+            <p style="text-align: center;">
+                📱 WhatsApp: +994 00 000 00 00<br>
+                📷 Instagram: @senin.hekayen.az
+            </p>
+        </div>
+    </div>
 
-        /* Progress Bar */
-        .progress-container {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            padding: 0.5rem;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .progress-bar {
-            height: 8px;
-            background: linear-gradient(90deg, var(--antique-gold), var(--cozy-cream));
-            border-radius: 50px;
-            transition: width 0.5s ease;
-            box-shadow: 0 0 10px rgba(170, 130, 103, 0.5);
-        }
-
-        .step-indicator {
-            text-align: center;
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--cozy-cream);
-        }
-
-        /* Wizard Steps */
-        .wizard-step {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .wizard-step.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Cards */
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            border: 2px solid var(--antique-gold);
-        }
-
-        .card h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2rem;
-            color: var(--ink-black);
-            margin-bottom: 0.5rem;
-            text-align: center;
-        }
-
-        .card-subtitle {
-            text-align: center;
-            color: var(--soft-brown);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        /* Hero Section */
-        .hero-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--antique-gold), var(--cozy-cream));
-            color: var(--ink-black);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 15px rgba(170, 130, 103, 0.4);
-        }
-
-        .hero-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--off-white);
-            text-align: center;
-            margin-bottom: 1rem;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-        }
-
-        .hero-title .highlight {
-            background: linear-gradient(135deg, var(--antique-gold), var(--cozy-cream));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--cozy-cream);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        /* Features Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .feature-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem 1rem;
-            border-radius: 15px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(154, 102, 212, 0.3);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .feature-text {
-            font-size: 0.9rem;
-            color: var(--cozy-cream);
-        }
-
-        /* Product Specs */
-        .specs-container {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            backdrop-filter: blur(10px);
-        }
-
-        .specs-title {
-            text-align: center;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color:
+    <a href="https://wa.me/994000000000" class="whatsapp-float">💬 WhatsApp</a>
+</body>
+</html>
