@@ -541,7 +541,12 @@
                 </div>
                 <div class="form-group">
                     <label>Yaşı</label>
-                    <input type="number" placeholder="Məsələn: 5" required>
+                    <input type="number" id="childAge" placeholder="Məsələn: 5" required onchange="updateRecommendations()">
+                </div>
+                
+                <div id="ageRecommendations" style="display: none; background: rgba(50, 80, 176, 0.1); padding: 1rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #3250b0;">
+                    <strong style="color: #3250b0;">💡 Tövsiyələr:</strong>
+                    <p id="recommendationText" style="margin-top: 0.5rem; color: #333;"></p>
                 </div>
                 <div class="form-group">
                     <label>Maraqları</label>
@@ -568,6 +573,31 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeModal();
         });
+        
+        function updateRecommendations() {
+            const age = parseInt(document.getElementById('childAge').value);
+            const recDiv = document.getElementById('ageRecommendations');
+            const recText = document.getElementById('recommendationText');
+            
+            if (isNaN(age)) {
+                recDiv.style.display = 'none';
+                return;
+            }
+            
+            recDiv.style.display = 'block';
+            
+            if (age < 3) {
+                recText.innerHTML = '👶 <strong>Başlanğıc səviyyə:</strong> Sadə hekayələr, parlaq rənglər, heyvan personajları tövsiyə olunur. (Məsələn: Pişik, it, dovşan macəraları)';
+            } else if (age >= 3 && age < 6) {
+                recText.innerHTML = '🎨 <strong>Erkən uşaq bağçası:</strong> Nağıl dünyalar, sehrli varlıqlar, rəngli macəralar. (Məsələn: Perilər, cinlər, sehrli meşələr)';
+            } else if (age >= 6 && age < 9) {
+                recText.innerHTML = '🚀 <strong>Məktəbəqədər:</strong> Kəşfiyyat, elmi mövzular, super qəhrəmanlar. (Məsələn: Kosmos, dinosaur, robotlar)';
+            } else if (age >= 9 && age < 12) {
+                recText.innerHTML = '📚 <strong>Başlangic məktəb:</strong> Macəra, idman, texnologiya mövzuları. (Məsələn: Futbol, proqramlaşdırma, sirli adalar)';
+            } else {
+                recText.innerHTML = '🎯 <strong>Yeniyetmə:</strong> Daha mürəkkəb hekayələr, tarixi mövzular, idman komandaları. (Məsələn: Tarixi qəhrəmanlar, komanda idmanları)';
+            }
+        }
     </script>
 </body>
 </html>
